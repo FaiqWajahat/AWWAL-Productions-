@@ -1,0 +1,81 @@
+@import "tailwindcss";
+
+@font-face {
+  font-family: "Geret";
+  src: url("/fonts/Geret-Regular.woff2") format("woff2");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Geret";
+  src: url("/fonts/Geret-Bold.woff2") format("woff2");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+:root {
+  /* Brand colors */
+  --color-purple-light: #9550f2;
+  --color-purple-dark: #4d0f92;
+  --color-green-light: #afce30;
+  --color-green-dark: #699d0a;
+  --color-gray: #4d4d4d;
+  --color-black: #000000;
+
+  /* Typography */
+  --font-heading: var(--font-league-spartan), "League Spartan", sans-serif;
+  --font-body: "Geret", system-ui, sans-serif;
+
+  /* Semantic tokens */
+  --background: #ffffff;
+  --foreground: var(--color-black);
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+
+  --color-purple-light: #9550f2;
+  --color-purple-dark: #4d0f92;
+  --color-green-light: #afce30;
+  --color-green-dark: #699d0a;
+  --color-gray: #4d4d4d;
+  --color-black: #000000;
+
+  --font-heading: var(--font-heading);
+  --font-body: var(--font-body);
+  --font-sans: var(--font-body);
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-body);
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: var(--font-heading);
+}
+
+@keyframes shine {
+  100% { left: 125%; }
+}
+@keyframes gradient {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+.animate-shine {
+  animation: shine 1.5s ease-out infinite;
+}
+.animate-gradient {
+  animation: gradient 5s ease infinite;
+}
