@@ -111,7 +111,7 @@ const GrowthLevers = () => {
                   key={index}
                   variants={springUp}
                   className="inline-block"
-                  whileHover={{ scale: 1.1, rotate: Math.random() * 10 - 5, color: "#000" }}
+                  whileHover={{ scale: 1.1, rotate: index % 2 === 0 ? 5 : -5, color: "#000" }}
                 >
                   {word}
                 </motion.span>

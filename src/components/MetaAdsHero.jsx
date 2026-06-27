@@ -2,9 +2,9 @@
 
 import { motion } from "framer-motion";
 import { ArrowRight, MessageCircle } from "lucide-react";
+import Link from "next/link";
 
-const Hero = () => {
-  // Clean, professional staggered animations
+const MetaAdsHero = () => {
   const fadeUpVariants = {
     hidden: { opacity: 0, y: 20 },
     visible: { 
@@ -22,7 +22,6 @@ const Hero = () => {
     },
   };
 
-  // Underline animation variant
   const lineVariants = {
     hidden: { width: 0 },
     visible: {
@@ -45,21 +44,30 @@ const Hero = () => {
         animate="visible"
       >
         
+        {/* Top Badge */}
+        <motion.div 
+          variants={fadeUpVariants}
+          className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-gray/20 bg-white/50 backdrop-blur-sm mb-8 sm:mb-10"
+        >
+          <span className="w-2 h-2 rounded-full bg-purple-dark" />
+          <span className="font-body text-xs sm:text-sm font-bold uppercase tracking-widest text-black">Meta Ads Management</span>
+        </motion.div>
+
         {/* Headline leveraging League Spartan font and Brand Colors */}
         <motion.h1
           variants={fadeUpVariants}
-          className="font-heading text-5xl sm:text-7xl md:text-8xl font-bold tracking-tighter leading-[1] text-black mb-6 "
+          className="font-heading text-5xl sm:text-7xl md:text-8xl font-bold tracking-tighter leading-[1] text-black mb-6"
         >
-          Your business deserves <br className="hidden lg:block" />
+          Stop paying for clicks. <br className="hidden lg:block" />
+          Pay for 
           <span className="relative inline-block text-purple-dark px-2">
-            customers
+            customers.
             {/* Animated underline starting from 0 to full width */}
             <motion.span 
               variants={lineVariants}
               className="absolute bottom-2 left-0 h-3 bg-green-light/40 -z-10 skew-x-[-15deg] origin-left"
             />
           </span>
-          , not just clicks.
         </motion.h1>
 
         {/* Subheadline (Concise & Minimal) */}
@@ -67,7 +75,7 @@ const Hero = () => {
           variants={fadeUpVariants}
           className="font-body text-lg sm:text-xl text-gray max-w-2xl mx-auto mb-10 leading-relaxed font-medium"
         >
-          We build the high-converting websites, strategies, and ad systems that turn traffic into revenue.
+          We turn your Meta Ad spend into measurable, scalable revenue.
         </motion.p>
 
         {/* CTA Group */}
@@ -76,22 +84,20 @@ const Hero = () => {
           className="flex flex-col sm:flex-row items-center gap-4 w-full sm:w-auto"
         >
           {/* Primary CTA */}
-          <a
-            href="https://wa.me/YOUR_PHONE_NUMBER"
-            target="_blank"
-            rel="noopener noreferrer"
+          <Link
+            href="/contact"
             className="group flex items-center justify-center gap-2 px-8 py-3.5 bg-green-light text-black font-body font-bold text-base rounded-full hover:bg-green-dark hover:text-white transition-all duration-300 w-full sm:w-auto shadow-[0_8px_30px_rgba(175,206,48,0.2)] hover:shadow-[0_8px_30px_rgba(105,157,10,0.3)] hover:-translate-y-0.5"
           >
             <MessageCircle className="w-5 h-5 transition-colors group-hover:text-white" />
-            <span>Get Free Growth Audit</span>
-          </a>
+            <span>Book Free Meta Ads Audit</span>
+          </Link>
 
           {/* Secondary CTA */}
           <a
             href="#results"
             className="group flex items-center justify-center gap-1.5 px-8 py-3.5 bg-transparent text-black border border-black font-body font-semibold text-base rounded-full hover:bg-black hover:text-white transition-all duration-300 w-full sm:w-auto hover:-translate-y-0.5"
           >
-            <span>See results</span>
+            <span>See the results we've produced</span>
             <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
           </a>
         </motion.div>
@@ -100,4 +106,4 @@ const Hero = () => {
   );
 };
 
-export default Hero;
+export default MetaAdsHero;

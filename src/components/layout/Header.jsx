@@ -11,18 +11,19 @@ const navLinks = [
   { name: "Home", href: "/" },
   { 
     name: "Services", 
-    href: "#services",
+    href: "/#services",
     subLinks: [
-      { name: "Meta & Google Ads", href: "#ads" },
-      { name: "Custom Web Development", href: "#custom-web" },
-      { name: "Shopify & E-Commerce", href: "#ecommerce" },
-      { name: "Social Media Management", href: "#social-media" },
+      { name: "Meta Ads", href: "/services/meta-ads" },
+      { name: "Google Ads", href: "/services/google-ads" },
+      { name: "WordPress Website", href: "/services/wordpress" },
+      { name: "Custom Web Dev", href: "/services/custom-web" },
+   
     ]
   },
-  { name: "Work", href: "#work" },
-  { name: "About", href: "#about" },
-  { name: "Contact", href: "#contact" },
-  // { name: "Faqs", href: "#faqs" }
+  { name: "Work", href: "/work" },
+  { name: "About", href: "/about" },
+  { name: "Contact", href: "/contact" },
+ 
 ];
 
 const Navbar = () => {
@@ -64,12 +65,18 @@ const Navbar = () => {
       return pathname === "/" && activeHash === "";
     }
     
-    // Check if the link itself matches the hash
-    if (activeHash === link.href) return true;
+    // Exact match for standard routes
+    if (link.href === pathname) return true;
 
-    // Check if any child sublink matches the current hash (keeps parent "Services" active)
+    // Match for hash links on the home page (e.g., "/#services")
+    if (link.href.includes("#") && pathname === "/") {
+      const hashPart = link.href.split("#")[1];
+      if (activeHash === `#${hashPart}`) return true;
+    }
+
+    // Check if any child sublink matches the current pathname
     if (link.subLinks) {
-      return link.subLinks.some(sub => sub.href === activeHash);
+      return link.subLinks.some(sub => sub.href === pathname);
     }
 
     return false;
@@ -166,7 +173,7 @@ const Navbar = () => {
                           >
                             <div className="flex flex-col py-2">
                               {link.subLinks.map((subLink) => {
-                                const isSubActive = activeHash === subLink.href;
+                                const isSubActive = pathname === subLink.href;
                                 return (
                                   <a
                                     key={subLink.name}
@@ -192,9 +199,7 @@ const Navbar = () => {
             {/* Desktop CTA Button */}
             <div className="hidden md:flex items-center z-20">
               <a
-                href="https://wa.me/YOUR_PHONE_NUMBER"
-                target="_blank"
-                rel="noopener noreferrer"
+                href="/audit"
                 className="font-body text-sm font-bold bg-black text-white px-7 py-3 rounded-full hover:bg-green-light hover:text-black transition-all duration-300 shadow-md hover:shadow-[0_8px_20px_rgba(175,206,48,0.4)] hover:-translate-y-0.5"
               >
                 FREE AUDIT
@@ -242,7 +247,7 @@ const Navbar = () => {
                       {link.subLinks && (
                         <div className="flex flex-col mt-4 pl-4 space-y-4 border-l-2 border-purple-light/30">
                           {link.subLinks.map((subLink) => {
-                            const isSubActive = activeHash === subLink.href;
+                            const isSubActive = pathname === subLink.href;
                             return (
                               <a
                                 key={subLink.name}
@@ -264,10 +269,9 @@ const Navbar = () => {
                 
                 <div className="pt-6 mb-32 w-full max-w-sm mx-auto flex flex-col justify-center text-center">
                   <a
-                    href="https://wa.me/YOUR_PHONE_NUMBER"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="inline-block font-body text-lg font-bold bg-green-light text-black px-8 py-4 rounded-full w-full shadow-[0_8px_20px_rgba(175,206,48,0.3)]"
+                    href="/audit"
+                    onClick={() => setIsMobileMenuOpen(false)}
+                    className="inline-block font-body text-lg font-bold bg-green-light text-black px-8 py-4 rounded-full w-full shadow-[0_8px_20px_rgba(175,206,48,0.3)] hover:bg-green-dark hover:text-white transition-colors"
                   >
                     GET FREE AUDIT
                   </a>

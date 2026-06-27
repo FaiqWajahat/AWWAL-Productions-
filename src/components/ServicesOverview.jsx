@@ -153,7 +153,7 @@ const ServicesOverview = () => {
                     key={index}
                     variants={springUp}
                     className="inline-block"
-                    whileHover={{ y: -5, rotate: Math.random() * 6 - 3 }}
+                    whileHover={{ y: -5, rotate: (index % 2 === 0 ? 3 : -3) }}
                   >
                     {word}
                   </motion.span>

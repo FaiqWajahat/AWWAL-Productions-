@@ -7,6 +7,11 @@ import StrategyQualifier from '@/components/StrategyQualifier'
 import ProofWall from '@/components/ProofWall'
 import AwwalProcess from '@/components/AwwalProcess'
 
+export const metadata = {
+  title: "Awwal Productions | Performance Marketing & Web Development",
+  description: "We build the websites, strategies, and performance marketing systems that turn searchers into customers. Claim your free growth audit today.",
+};
+
 const page = () => {
   return (
     <>

@@ -1,6 +1,6 @@
 export const siteConfig = {
-  name: "Awwal Production",
-  description: "Professional production services and creative solutions.",
+  name: "Awwal Productions",
+  description: "Awwal Productions is a performance marketing and web development agency building high-converting websites and growth systems.",
   url: "https://awwalproduction.com",
   links: {
     email: "hello@awwalproduction.com",
