@@ -6,7 +6,7 @@ import { Briefcase, Users, Code, Video, PenTool } from "lucide-react";
 
 const teamMembers = [
   {
-    name: "Harry",
+    name: "Harryson Robert",
     role: "Founder",
     icon: Briefcase,
     initials: "H",
@@ -15,7 +15,7 @@ const teamMembers = [
     skills: ["Vision", "Strategy", "Scale"],
   },
   {
-    name: "Farhan",
+    name: "Farhan Nadeem",
     role: "Co-Founder",
     icon: Users,
     initials: "F",
@@ -33,7 +33,7 @@ const teamMembers = [
     skills: ["React", "Next.js", "Performance"],
   },
   {
-    name: "Abdullah",
+    name: "Abdullah Mirza" ,
     role: "Video Editor",
     icon: Video,
     initials: "A",
@@ -42,7 +42,7 @@ const teamMembers = [
     skills: ["Motion", "Narrative", "Pacing"],
   },
   {
-    name: "Shahvaiz",
+    name: "Shavaiz Malik",
     role: "Graphic Designer",
     icon: PenTool,
     initials: "S",
